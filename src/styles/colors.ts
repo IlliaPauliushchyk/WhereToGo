@@ -1,0 +1,112 @@
+import {
+  DarkTheme as NavigationDarkTheme,
+  DefaultTheme as NavigationDefaultTheme,
+} from '@react-navigation/native';
+import merge from 'deepmerge';
+import {
+  MD3DarkTheme,
+  MD3LightTheme,
+  adaptNavigationTheme,
+} from 'react-native-paper';
+
+const PaperTheme = {
+  ...MD3LightTheme,
+  colors: {
+    ...MD3LightTheme.colors,
+    primary: 'rgb(255, 87, 87)',
+    onPrimary: 'rgb(255, 255, 255)',
+    primaryContainer: 'rgb(255, 218, 214)',
+    onPrimaryContainer: 'rgb(105, 0, 0)',
+    secondary: 'rgb(0, 150, 136)',
+    onSecondary: 'rgb(255, 255, 255)',
+    secondaryContainer: 'rgb(178, 235, 227)',
+    onSecondaryContainer: 'rgb(0, 75, 68)',
+    tertiary: 'rgb(255, 179, 0)',
+    onTertiary: 'rgb(0, 0, 0)',
+    tertiaryContainer: 'rgb(255, 227, 155)',
+    onTertiaryContainer: 'rgb(122, 89, 0)',
+    error: 'rgb(220, 50, 47)',
+    onError: 'rgb(255, 255, 255)',
+    errorContainer: 'rgb(255, 218, 214)',
+    onErrorContainer: 'rgb(95, 33, 32)',
+    background: 'rgb(255, 253, 252)',
+    onBackground: 'rgb(30, 30, 30)',
+    surface: 'rgb(255, 255, 255)',
+    onSurface: 'rgb(30, 30, 30)',
+    surfaceVariant: 'rgb(242, 242, 242)',
+    onSurfaceVariant: 'rgb(110, 110, 110)',
+    outline: 'rgb(180, 180, 180)',
+    outlineVariant: 'rgb(220, 220, 220)',
+    shadow: 'rgb(0, 0, 0)',
+    scrim: 'rgb(0, 0, 0)',
+    inverseSurface: 'rgb(50, 50, 50)',
+    inverseOnSurface: 'rgb(255, 255, 255)',
+    inversePrimary: 'rgb(255, 180, 168)',
+    elevation: {
+      level0: 'transparent',
+      level1: 'rgb(248, 248, 248)',
+      level2: 'rgb(243, 243, 243)',
+      level3: 'rgb(238, 238, 238)',
+      level4: 'rgb(236, 236, 236)',
+      level5: 'rgb(233, 233, 233)',
+    },
+    surfaceDisabled: 'rgba(30, 30, 30, 0.12)',
+    onSurfaceDisabled: 'rgba(30, 30, 30, 0.38)',
+    backdrop: 'rgba(50, 50, 50, 0.4)',
+  },
+};
+
+const PaperDarkTheme = {
+  ...MD3DarkTheme,
+  colors: {
+    ...MD3DarkTheme.colors,
+    primary: 'rgb(255, 135, 124)',
+    onPrimary: 'rgb(105, 0, 0)',
+    primaryContainer: 'rgb(150, 40, 30)',
+    onPrimaryContainer: 'rgb(255, 218, 214)',
+    secondary: 'rgb(128, 209, 200)',
+    onSecondary: 'rgb(0, 55, 50)',
+    secondaryContainer: 'rgb(0, 80, 72)',
+    onSecondaryContainer: 'rgb(178, 235, 227)',
+    tertiary: 'rgb(255, 200, 92)',
+    onTertiary: 'rgb(65, 45, 0)',
+    tertiaryContainer: 'rgb(122, 89, 0)',
+    onTertiaryContainer: 'rgb(255, 227, 155)',
+    error: 'rgb(255, 138, 128)',
+    onError: 'rgb(105, 0, 5)',
+    errorContainer: 'rgb(147, 0, 10)',
+    onErrorContainer: 'rgb(255, 218, 214)',
+    background: 'rgb(20, 20, 20)',
+    onBackground: 'rgb(230, 230, 230)',
+    surface: 'rgb(30, 30, 30)',
+    onSurface: 'rgb(230, 230, 230)',
+    surfaceVariant: 'rgb(60, 60, 60)',
+    onSurfaceVariant: 'rgb(190, 190, 190)',
+    outline: 'rgb(140, 140, 140)',
+    outlineVariant: 'rgb(60, 60, 60)',
+    shadow: 'rgb(0, 0, 0)',
+    scrim: 'rgb(0, 0, 0)',
+    inverseSurface: 'rgb(230, 230, 230)',
+    inverseOnSurface: 'rgb(50, 50, 50)',
+    inversePrimary: 'rgb(150, 40, 30)',
+    elevation: {
+      level0: 'transparent',
+      level1: 'rgb(35, 35, 35)',
+      level2: 'rgb(40, 40, 40)',
+      level3: 'rgb(45, 45, 45)',
+      level4: 'rgb(47, 47, 47)',
+      level5: 'rgb(50, 50, 50)',
+    },
+    surfaceDisabled: 'rgba(230, 230, 230, 0.12)',
+    onSurfaceDisabled: 'rgba(230, 230, 230, 0.38)',
+    backdrop: 'rgba(50, 50, 50, 0.4)',
+  },
+};
+
+const {LightTheme, DarkTheme} = adaptNavigationTheme({
+  reactNavigationLight: NavigationDefaultTheme,
+  reactNavigationDark: NavigationDarkTheme,
+});
+
+export const CombinedDefaultTheme = merge(LightTheme, PaperTheme);
+export const CombinedDarkTheme = merge(DarkTheme, PaperDarkTheme);
